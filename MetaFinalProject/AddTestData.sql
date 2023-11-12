@@ -1,0 +1,96 @@
+-- to check the database was created
+SHOW DATABASES;
+
+-- make sure you choose the database to use
+USE LittleLemonDB;
+
+-- check tables were added
+SHOW tables;
+
+-- Code below prevents error when inserting data due to foreign keys
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO MenuItems (Menu_Items_ID, Course_Name, Type, Price)
+VALUES
+(1, 'Greek salad', 'Main Course', 10),
+(2, 'Bean soup', 'Main Course', 8),
+(3, 'Pizza', 'Main Course', 20),
+(4, 'Carbonara', 'Main Course', 18),
+(5, 'Kabasa', 'Main Course', 14),
+(6, 'Shwarma', 'Main Course', 12),
+(7, 'Olives', 'Starters', 5),
+(8, 'Flatbread', 'Starters', 5),
+(9, 'Minestrone', 'Starters', 3),
+(10, 'Tomato bread', 'Starters', 7),
+(11, 'Falafel', 'Starters', 7),
+(12, 'Hummus', 'Starters', 8),
+(13, 'Greek Yoghurt', 'Desserts', 4),
+(14, 'Ice Cream', 'Desserts', 6),
+(15, 'Cheesecake', 'Desserts', 8),
+(16, 'Affogato', 'Desserts', 9),
+(17, 'Turkish Yoghurt', 'Desserts', 10),
+(18, 'Baklava', 'Desserts', 7),
+(19, 'Athens White Wine', 'Drinks', 9),
+(20, 'Corfu Red Wine', 'Drinks', 10),
+(21, 'Italian Coffee', 'Drinks', 3);
+
+
+INSERT INTO Menus (Menu_ID, Menu_Items_ID, Food_Type)
+VALUES
+(1, 1, 'Greek'),
+(2, 2, 'Greek'),
+(3, 3, 'Italian'),
+(4, 4, 'Italian'),
+(5, 5, 'Greek'),
+(6, 6, 'Turkish'),
+(7, 7, 'Italian'),
+(8, 8, 'Italian'),
+(9, 9, 'Italian'),
+(10, 10, 'Turkish'),
+(11, 11, 'Turkish'),
+(12, 12, 'Turkish'),
+(13, 13, 'Greek'),
+(14, 14, 'Greek'),
+(15, 15, 'Greek'),
+(16, 16, 'Greek'),
+(17, 17, 'Turkish'),
+(18, 18, 'Turkish'),
+(19, 19, 'Greek'),
+(20, 20, 'Italian'),
+(21, 21, 'Italian');
+
+INSERT INTO Employees (Employee_ID, Name, Employee_Role, Employee_Address, Employee_Contact_Number, Employee_Email, Employee_Annual_Salary)
+VALUES
+(01,'Mario Gollini','Manager','724, Parsley Lane, Old Town, Chicago, IL', 351258074, 'Mario.g@littlelemon.com', '70000'),
+(02,'Adrian Gollini','Assistant Manager','334, Dill Square, Lincoln Park, Chicago, IL', 351474048, 'Adrian.g@littlelemon.com', '65000'),
+(03,'Giorgos Dioudis','Head Chef','879 Sage Street, West Loop, Chicago, IL', 351970582, 'Giorgos.d@littlelemon.com', '50000'),
+(04,'Fatma Kaya','Assistant Chef','132  Bay Lane, Chicago, IL', 351963569, 'Fatma.k@littlelemon.com', '45000'),
+(05,'Elena Salvai','Head Waiter','989 Thyme Square, EdgeWater, Chicago, IL', 351074198, 'Elena.s@littlelemon.com', '40000'),
+(06,'John Millar','Receptionist','245 Dill Square, Lincoln Park, Chicago, IL', 351584508, 'John.m@littlelemon.com', '35000');
+
+INSERT INTO Customer (Customer_ID, Customer_Name, Customer_Contact)
+VALUES
+(1, 'Vanessa McCarthy', 12345),
+(2, 'Marcos Romero', 67891),
+(3, 'Anna Iversen', 19876),
+(4, 'Joakim Iversen', 65432),
+(5, 'Diana Pinto', 11123),
+(6, 'Hiroki Yamane', 13145);
+
+INSERT INTO Bookings (Booking_ID, Booking_Date, Table_Number, Customer_ID, EmployeeID)
+VALUES
+(1, '2020-01-15', 1, 1, 1),
+(2, '2020-08-25', 2, 2, 2),
+(3, '2021-08-17', 3, 3, 3),
+(4, '2021-08-14', 4, 4, 4),
+(5, '2020-12-20', 5, 5, 5),
+(6, '2020-03-01', 6, 6, 6);
+
+INSERT INTO Orders (Order_ID, Menu_ID, Customer_ID, Order_Quantity, Total_Cost)
+VALUES
+(1, 1, 1, 6, 250),
+(2, 2, 2, 5, 200),
+(3, 3, 3, 4, 150),
+(4, 4, 4, 3, 100),
+(5, 5, 5, 2, 50),
+(6, 6, 6, 1, 30);
